@@ -1,6 +1,7 @@
 package tests;
 
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import io.restassured.builder.ResponseSpecBuilder;
@@ -27,6 +28,7 @@ public class CategoriesTests {
 		responsespec = builder.build();
 	}
 
+	//******************************************GETMETHOD**************************************
 	@Test(description = "Check that the response status code is 200 when sending API GET/categories request ")
 	public void CTT_GET_status_code() {
 		given().
@@ -156,14 +158,14 @@ public class CategoriesTests {
 			log().all();
 	}
 	
-	@Test(description = "Check that the response status code is 200 when sending API GET/Categories/validID")
-	public void CTT_GET_ID() {
+	@Test(dataProvider = "idNameData", description = "Check that the response status code is 200 when sending API GET/Categories/validID")
+	public void CTT_GET_ID(String id) {
 		given().
-			get("/categories/pcmcat84000050001").
+			get("/categories/"+id).
 		then().
 			spec(responsespec).
 			statusCode(200).
-			body("id", equalTo("pcmcat84000050001")).
+			body("id", equalTo(id)).
 			log().all();
 	}
 	
@@ -417,4 +419,10 @@ public class CategoriesTests {
 			statusCode(404).
 			log().all();
 	}
+	
+	
+	
+	 @DataProvider public Object[] idNameData(){
+	        return new Object[] {"abcat0010000","abcat0020001","abcat0020002" ,"abcat0020004"};
+	    }
 }

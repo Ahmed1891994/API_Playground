@@ -6,7 +6,7 @@
       <class name="tests.CategoriesTests">
         <methods>
           <include name="setup"/>
-          <include name="CTT_PATCH_Request_InvalidID"/>
+          <include name="CTT_GET_ID"/>
         </methods>
       </class> <!-- tests.CategoriesTests -->
     </classes>
