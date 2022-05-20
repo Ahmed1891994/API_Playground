@@ -14,7 +14,7 @@
 TestNG : From eclipse marketplace
 
 
-## what this solution covers?
+## What this solution covers?
 1) Downloading and setting up REST Assured – a Java library for testing HTTP endpoints
 2) Simple tests that perform one interaction with the HTTP endpoint
 3) A valid pom.xml file that builds the project
@@ -22,6 +22,6 @@ TestNG : From eclipse marketplace
 5) Validating JSON responses according to a schema
 6) Reporting using Allure
 
-## what to improve?
+## What to improve?
 1) Design pattern for APIs
 2) more Generic way for Data Driven
