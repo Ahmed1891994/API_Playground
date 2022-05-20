@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.StoresTests">
+      <class name="tests.CategoriesTests">
         <methods>
           <include name="setup"/>
-          <include name="STT_DELETE_Request_VALID"/>
+          <include name="CTT_PATCH_Request_InvalidID"/>
         </methods>
-      </class> <!-- tests.StoresTests -->
+      </class> <!-- tests.CategoriesTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -5,10 +5,13 @@ import org.testng.annotations.Test;
 
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import io.restassured.specification.ResponseSpecification;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
+
+import java.util.HashMap;
 
 import org.json.simple.JSONObject;
 
@@ -188,10 +191,11 @@ public class CategoriesTests {
 	//***************************************POST*********************************************
 	@Test(description = "Check that the response status code is 200 when sending API POST/categories request with valid data")
 	public void CTT_POST_Valid_Request() {
-		JSONObject request = new JSONObject();
-
-		request.put("id", "555");
-		request.put("name", "Categorytest");
+		
+		HashMap<String,String> map = new HashMap<String,String>();
+		map.put("id", "555");
+		map.put("name", "Categorytest");
+		JSONObject request = new JSONObject(map);
 		
 		given().
 			header("Content-Type", "application/json").
@@ -224,9 +228,10 @@ public class CategoriesTests {
 	
 	@Test(description = "Check that the response status code is 400 when sending API POST/categories request with no ID")
 	public void CTT_POST_Request_NO_ID() {
-		JSONObject request = new JSONObject();
-
-		request.put("name", "Categorytest");
+		
+		HashMap<String,String> map = new HashMap<String,String>();
+		map.put("name", "Categorytest");
+		JSONObject request = new JSONObject(map);
 		
 		given().
 			header("Content-Type", "application/json").
@@ -241,9 +246,10 @@ public class CategoriesTests {
 	
 	@Test(description = "Check that the response status code is 400 when sending API POST/categories request with no name")
 	public void CTT_POST_Request_NO_Name() {
-		JSONObject request = new JSONObject();
-
-		request.put("id", "556");
+		
+		HashMap<String,String> map = new HashMap<String,String>();
+		map.put("id", "556");
+		JSONObject request = new JSONObject(map);
 		
 		given().
 			header("Content-Type", "application/json").
@@ -270,10 +276,11 @@ public class CategoriesTests {
 	
 	@Test(description = "Check that the response status code is 400 when sending API POST/categories request with existing ID")
 	public void CTT_POST_Request_Exist_ID() {
-		JSONObject request = new JSONObject();
-
-		request.put("id", "pcmcat84000050001");
-		request.put("name", "Categorytest");
+		
+		HashMap<String,String> map = new HashMap<String,String>();
+		map.put("id", "pcmcat84000050001");
+		map.put("name", "Categorytest");
+		JSONObject request = new JSONObject(map);
 		
 		given().
 			header("Content-Type", "application/json").
@@ -289,10 +296,10 @@ public class CategoriesTests {
 	
 	@Test(description = "Check that the response status code is 200 when sending API DELETE/categories request with valid id")
 	void CTT_DELETE_Request_VALID() {
-		JSONObject request = new JSONObject();
-
-		request.put("id", "555");
-		request.put("name", "Categorytest");
+		HashMap<String,String> map = new HashMap<String,String>();
+		map.put("id", "555");
+		map.put("name", "Categorytest");
+		JSONObject request = new JSONObject(map);
 		
 		given().
 			header("Content-Type", "application/json").
@@ -332,4 +339,82 @@ public class CategoriesTests {
 
 	}
 	
+	//*********************************PatchMethod************************************
+	@Test(description = "Check that the response status code is 200 when sending API PATCH/Categories request with Valid ID")
+	public void CTT_PATCH_Request_VALID() {
+		String beforemodificationid;
+		
+		HashMap<String,String> map = new HashMap<String,String>();
+		map.put("id", "555");
+		map.put("name", "BeforemodificationCategorytest");
+		JSONObject request = new JSONObject(map);
+		
+		//post to create ID with value 555
+		Response response = given().
+			header("Content-Type", "application/json").
+			contentType(ContentType.JSON).
+			accept(ContentType.JSON).
+			body(request.toJSONString()).
+		when().
+			post("/categories");
+		
+		//save ID 555 in variable
+		beforemodificationid = response.jsonPath().getString("id");
+		
+		map.put("id", "555");
+		map.put("name", "AftermodificationCategorytest");	
+		request = new JSONObject(map);
+		
+		//Send patch request to modify the name of ID 555
+		given().
+			header("Content-Type", "application/json").
+			contentType(ContentType.JSON).
+			accept(ContentType.JSON).
+			body(request.toJSONString()).
+		when().
+			patch("/stores/"+beforemodificationid).
+		then().
+			statusCode(200).
+			body("name", equalTo("AftermodificationCategorytest")).
+			log().all();
+		
+		//Delete the modified ID
+		given().
+			delete("/categories/"+beforemodificationid).
+		then().
+			statusCode(200);
+	}
+	
+	@Test(description = "Check that the response status code is 404 when sending API PATCH/Categories request with InValid ID")
+	public void CTT_PATCH_Request_InvalidID() {
+		HashMap<String,String> map = new HashMap<String,String>();
+		map.put("id", "555");
+		map.put("name", "AftermodificationCategorytest");	
+		JSONObject request = new JSONObject(map);
+		
+		//Send patch request to modify the name of ID 555
+		given().
+			header("Content-Type", "application/json").
+			contentType(ContentType.JSON).
+			accept(ContentType.JSON).
+			body(request.toJSONString()).
+		when().
+			patch("/categories/555").
+		then().
+			statusCode(404).
+			log().all();
+	}
+	
+	@Test(description = "Check that the response status code is 404 when sending API PATCH/Categories request with InValid ID")
+	public void CTT_PATCH_Request_stringID() {	
+		given().
+			header("Content-Type", "application/json").
+			contentType(ContentType.JSON).
+			accept(ContentType.JSON).
+		when().
+			patch("/categories/555").
+		then().
+			statusCode(404).
+			log().all();
+	}
 }

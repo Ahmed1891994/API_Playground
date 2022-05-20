@@ -1,21 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="28" total="29" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="25" passed="25" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-05-20T11:45:26 EET" name="Default suite" finished-at="2022-05-20T11:45:31 EET" duration-ms="5294">
+  <suite started-at="2022-05-20T22:39:33 EET" name="Suite" finished-at="2022-05-20T22:39:42 EET" duration-ms="9028">
     <groups>
     </groups>
-    <test started-at="2022-05-20T11:45:26 EET" name="Default test" finished-at="2022-05-20T11:45:31 EET" duration-ms="5294">
-      <class name="tests.ProductsTests">
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.ProductsTests@73e22a3d]" started-at="2022-05-20T11:45:26 EET" name="setup" finished-at="2022-05-20T11:45:27 EET" duration-ms="985" status="PASS">
+    <test started-at="2022-05-20T22:39:33 EET" name="Test" finished-at="2022-05-20T22:39:42 EET" duration-ms="9028">
+      <class name="tests.CategoriesTests">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:33 EET" name="setup" finished-at="2022-05-20T22:39:34 EET" duration-ms="953" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="CTT_DELETE_Request_VALID()[pri:0, instance:tests.ProductsTests@73e22a3d]" started-at="2022-05-20T11:45:27 EET" name="CTT_DELETE_Request_VALID" description="Check that the response status code is 200 when sending API DELETE/products request with valid id" finished-at="2022-05-20T11:45:31 EET" duration-ms="4230" status="PASS">
+        <test-method signature="CTT_DELETE_Request_INVALID_ID()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:34 EET" name="CTT_DELETE_Request_INVALID_ID" description="Check that the response status code is 404 when sending API DELETE/categories request with unknown id" finished-at="2022-05-20T22:39:36 EET" duration-ms="2511" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_DELETE_Request_INVALID_ID -->
+        <test-method signature="CTT_DELETE_Request_VALID()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:36 EET" name="CTT_DELETE_Request_VALID" description="Check that the response status code is 200 when sending API DELETE/categories request with valid id" finished-at="2022-05-20T22:39:38 EET" duration-ms="1969" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CTT_DELETE_Request_VALID -->
-      </class> <!-- tests.ProductsTests -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        <test-method signature="CTT_GET_All_ID_Numbers()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:38 EET" name="CTT_GET_All_ID_Numbers" description="Check that the total number of products is an integer when sending API GET/categories request " finished-at="2022-05-20T22:39:38 EET" duration-ms="254" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_GET_All_ID_Numbers -->
+        <test-method signature="CTT_GET_Default_Limit()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:38 EET" name="CTT_GET_Default_Limit" description="Check that the length of data is equal to the limit MAX number 25 when sending API GET/categories request with limit parameter 25" finished-at="2022-05-20T22:39:39 EET" duration-ms="179" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_GET_Default_Limit -->
+        <test-method signature="CTT_GET_ID()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:39 EET" name="CTT_GET_ID" description="Check that the response status code is 200 when sending API GET/Categories/validID" finished-at="2022-05-20T22:39:39 EET" duration-ms="75" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_GET_ID -->
+        <test-method signature="CTT_GET_Limit_Exceed_MAX()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:39 EET" name="CTT_GET_Limit_Exceed_MAX" description="Check that the length of data is equal to the limit Default number 10 when sending API GET/categories request with limit parameter 0" finished-at="2022-05-20T22:39:39 EET" duration-ms="222" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_GET_Limit_Exceed_MAX -->
+        <test-method signature="CTT_GET_Limit_MAX()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:39 EET" name="CTT_GET_Limit_MAX" description="Check that the length of data is equal to the limit MAX number 25 when sending API GET/categories request with limit parameter 35" finished-at="2022-05-20T22:39:39 EET" duration-ms="199" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_GET_Limit_MAX -->
+        <test-method signature="CTT_GET_Limit_MIN()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:39 EET" name="CTT_GET_Limit_MIN" description="Check that the length of data is equal to the limit Default number 10 when sending API GET/categories request with limit parameter 0" finished-at="2022-05-20T22:39:39 EET" duration-ms="92" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_GET_Limit_MIN -->
+        <test-method signature="CTT_GET_Message_Not_exist_id()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:39 EET" name="CTT_GET_Message_Not_exist_id" description="Check that the error message in response when sending API GET/Categories/invalidID" finished-at="2022-05-20T22:39:39 EET" duration-ms="48" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_GET_Message_Not_exist_id -->
+        <test-method signature="CTT_GET_Skip()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:39 EET" name="CTT_GET_Skip" description="Check that some of data are skipped in response when sending API GET/categories request with SKIP parameter less than the max IDs" finished-at="2022-05-20T22:39:39 EET" duration-ms="91" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_GET_Skip -->
+        <test-method signature="CTT_GET_Skip_Exceed_MAX()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:39 EET" name="CTT_GET_Skip_Exceed_MAX" description="Check that All data are skipped in response when sending API GET/categories request with SKIP parameter more than the max IDs" finished-at="2022-05-20T22:39:40 EET" duration-ms="103" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_GET_Skip_Exceed_MAX -->
+        <test-method signature="CTT_GET_Skip_MAX()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:40 EET" name="CTT_GET_Skip_MAX" description="Check that All data are skipped in response when sending API GET/categories request with SKIP parameter equal max IDs" finished-at="2022-05-20T22:39:40 EET" duration-ms="127" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_GET_Skip_MAX -->
+        <test-method signature="CTT_GET_Skip_MIN()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:40 EET" name="CTT_GET_Skip_MIN" description="Check that no data are skipped in response and return 10 as the default limit when sending API GET/categories request with SKIP parameter 0" finished-at="2022-05-20T22:39:40 EET" duration-ms="163" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_GET_Skip_MIN -->
+        <test-method signature="CTT_GET_String_Limit()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:40 EET" name="CTT_GET_String_Limit" description="Check that response error message when sending API GET/categories request with string limit parameter q" finished-at="2022-05-20T22:39:40 EET" duration-ms="117" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_GET_String_Limit -->
+        <test-method signature="CTT_GET_String_Skip()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:40 EET" name="CTT_GET_String_Skip" description="Check that response error message in response when sending API GET/categories request with String SKIP parameter q" finished-at="2022-05-20T22:39:40 EET" duration-ms="101" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_GET_String_Skip -->
+        <test-method signature="CTT_GET_status_code()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:40 EET" name="CTT_GET_status_code" description="Check that the response status code is 200 when sending API GET/categories request " finished-at="2022-05-20T22:39:40 EET" duration-ms="213" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_GET_status_code -->
+        <test-method signature="CTT_GET_status_code_Not_exist_id()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:40 EET" name="CTT_GET_status_code_Not_exist_id" description="Check that the response status code is 404 when sending API GET/Categories/invalidID" finished-at="2022-05-20T22:39:40 EET" duration-ms="33" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_GET_status_code_Not_exist_id -->
+        <test-method signature="CTT_PATCH_Request_InvalidID()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:40 EET" name="CTT_PATCH_Request_InvalidID" description="Check that the response status code is 404 when sending API PATCH/Categories request with InValid ID" finished-at="2022-05-20T22:39:40 EET" duration-ms="35" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_PATCH_Request_InvalidID -->
+        <test-method signature="CTT_PATCH_Request_VALID()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:40 EET" name="CTT_PATCH_Request_VALID" description="Check that the response status code is 200 when sending API PATCH/Categories request with Valid ID" finished-at="2022-05-20T22:39:41 EET" duration-ms="592" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_PATCH_Request_VALID -->
+        <test-method signature="CTT_PATCH_Request_stringID()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:41 EET" name="CTT_PATCH_Request_stringID" description="Check that the response status code is 404 when sending API PATCH/Categories request with InValid ID" finished-at="2022-05-20T22:39:41 EET" duration-ms="42" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_PATCH_Request_stringID -->
+        <test-method signature="CTT_POST_Request_Exist_ID()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:41 EET" name="CTT_POST_Request_Exist_ID" description="Check that the response status code is 400 when sending API POST/categories request with existing ID" finished-at="2022-05-20T22:39:41 EET" duration-ms="64" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_POST_Request_Exist_ID -->
+        <test-method signature="CTT_POST_Request_NO_DATA()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:41 EET" name="CTT_POST_Request_NO_DATA" description="Check that the response status code is 400 when sending API POST/categories request with no data" finished-at="2022-05-20T22:39:41 EET" duration-ms="42" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_POST_Request_NO_DATA -->
+        <test-method signature="CTT_POST_Request_NO_ID()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:41 EET" name="CTT_POST_Request_NO_ID" description="Check that the response status code is 400 when sending API POST/categories request with no ID" finished-at="2022-05-20T22:39:41 EET" duration-ms="29" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_POST_Request_NO_ID -->
+        <test-method signature="CTT_POST_Request_NO_Name()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:41 EET" name="CTT_POST_Request_NO_Name" description="Check that the response status code is 400 when sending API POST/categories request with no name" finished-at="2022-05-20T22:39:41 EET" duration-ms="26" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_POST_Request_NO_Name -->
+        <test-method signature="CTT_POST_Valid_Request()[pri:0, instance:tests.CategoriesTests@5c45d770]" started-at="2022-05-20T22:39:41 EET" name="CTT_POST_Valid_Request" description="Check that the response status code is 200 when sending API POST/categories request with valid data" finished-at="2022-05-20T22:39:42 EET" duration-ms="307" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CTT_POST_Valid_Request -->
+      </class> <!-- tests.CategoriesTests -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>
